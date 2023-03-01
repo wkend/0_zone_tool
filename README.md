@@ -3,8 +3,19 @@
 
 # 用法
 1.替换代码中的zone_key_id和查询条件
+## 参考语法
+```
+# 查询条件
+query = "(company=xxx有限公司)||(title==xxx有限公司)||(banner==xxx有限公司)||(ssl_info.detail=xxx有限公司)"
 
+# api_key
+zone_key_id = "xxxxxxxxxxxxxxxxxx"
 ```
 
-query = "(company=深圳壹账通智能科技有限公司)||(title==深圳壹账通智能科技有限公司)||(banner==深圳壹账通智能科技有限公司)||(ssl_info.detail=深圳壹账通智能科技有限公司)"  # 查询条件
-```
+2.运行脚本即可，结果保存到excle文件中
+
+![image](https://user-images.githubusercontent.com/37563697/222225610-07bf4cb3-9227-4ad4-b55a-6dbe56a33771.png)
+
+# 说明
+
+默认从第一页开始提取数据，每页条数最大为40，单个查询条件最多可获取10000条，单日累计查询次数上限为250次，请求速率<=2次/秒。
