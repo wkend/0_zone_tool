@@ -14,6 +14,16 @@ zone_key_id = "xxxxxxxxxxxxxxxxxx"
 
 2.运行脚本即可，结果保存到excle文件中
 
+```
+python3 0_zone.py
+[-] 正在提取第1页数据，，，
+[-] 正在提取第2页数据，，，
+[-] 正在提取第3页数据，，，
+[+] 第4页无数据，查询结束!
+[+] 共查询到91条数据！
+[+] 查询结果已经保存到results_20233215655.xlsx
+```
+
 ![image](https://user-images.githubusercontent.com/37563697/222225610-07bf4cb3-9227-4ad4-b55a-6dbe56a33771.png)
 
 # 说明
