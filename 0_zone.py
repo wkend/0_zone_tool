@@ -50,6 +50,7 @@ def query_data(query, query_type, page, pagesize, zone_key_id):
                         'status_code': result['status_code'],  # 状态码
                         'company': result['group'],  # 公司名称
                         'title': result['title'],
+                        'tags': result['tags'],  # 标签
                         'os': result['os'],
                         'cms': result['cms'],
                         'banner_os': result['banner_os'],
@@ -60,7 +61,6 @@ def query_data(query, query_type, page, pagesize, zone_key_id):
                         'service': result['service'],   # 服务
                         'extra_info': result['extra_info'],  # 设备分类
                         'app_name': result['app_name'],  # 应用名称
-                        'tags': result['tags'],  # 标签
                     })
                 time.sleep(3)
                 page += 1
