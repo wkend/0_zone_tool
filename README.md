@@ -3,17 +3,18 @@
 
 # 用法
 1.替换代码中的zone_key_id和查询条件
-## 参考语法
 ```
-# 查询条件
-query = "(company=xxx有限公司)||(title==xxx有限公司)||(banner==xxx有限公司)||(ssl_info.detail=xxx有限公司)"
-
 # api_key
 zone_key_id = "xxxxxxxxxxxxxxxxxx"
 ```
 
-2.运行脚本即可，结果保存到excle文件中
+## 参考语法
+```
+# 查询条件
+query = "(company=xxx有限公司)||(title==xxx有限公司)||(banner==xxx有限公司)||(ssl_info.detail=xxx有限公司)"
+```
 
+2.运行脚本即可，结果保存到excle文件中
 ```
 python3 0_zone.py
 [-] 正在提取第1页数据，，，
