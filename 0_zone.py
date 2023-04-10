@@ -44,30 +44,30 @@ def query_data(query, query_type, page, pagesize, zone_key_id):
                 print(colored('[-] 正在提取第{}页数据，，，'.format(page), 'blue'))
                 for result in result_list:
                     data_list.append({
-                        'ip': result['ip'],
-                        'port': result['port'],
-                        'url': result['url'],
-                        'status_code': result['status_code'],  # 状态码
-                        'company': result['group'],  # 公司名称
-                        'title': result['title'],
-                        'tags': result['tags'],  # 标签
-                        'os': result['os'],
-                        'cms': result['cms'],
-                        'banner_os': result['banner_os'],
-                        'component': result['component'],
-                        'city': result['city'],
-                        'device_type': result['device_type'],
-                        'operator': result['operator'],  # 运营商
-                        'service': result['service'],   # 服务
-                        'extra_info': result['extra_info'],  # 设备分类
-                        'app_name': result['app_name'],  # 应用名称
+                        'ip': result.setdefault('ip'),
+                        'port': result.setdefault('port'),
+                        'url': result.setdefault('url'),
+                        'status_code': result.setdefault('status_code'),  # 状态码
+                        'company': result.setdefault('group'),  # 公司名称
+                        'title': result.setdefault('title'),
+                        'tags': result.setdefault('tags'),  # 标签
+                        'os': result.setdefault('os'),
+                        'cms': result.setdefault('cms'),
+                        'banner_os': result.setdefault('banner_os'),
+                        'component': result.setdefault('component'),
+                        'city': result.setdefault('city'),
+                        'device_type': result.setdefault('device_type'),
+                        'operator': result.setdefault('operator'),  # 运营商
+                        'service': result.setdefault('service'),   # 服务
+                        'extra_info': result.setdefault('extra_info'),  # 设备分类
+                        'app_name': result.setdefault('app_name'),  # 应用名称
                     })
-                time.sleep(3)
                 page += 1
         else:
             print(colored("[+] Error: 查询出错，错误信息为:",
                   result_json['message'], 'red'))
             flag = False
+        time.sleep(3)
     print(colored('[+] 共查询到{}条数据！'.format(result_json['total']), 'green'))
     return data_list
 
@@ -84,11 +84,13 @@ def process_data(data):
 
 
 def main():
-    query = "(company=xxx有限公司)||(title==xxx有限公司)||(banner==xxx有限公司)||(ssl_info.detail=xxx有限公司)"  # 查询条件
+    query = "(company=平安国际融资租赁有限公司)||(title==平安国际融资租赁有限公司)||(banner==平安国际融资租赁有限公司)||(html_banner==平安国际融资租赁有限公司)||(component==平安国际融资租赁有限公司)||(ssl_info.detail==平安国际融资租赁有限公司)"  # 查询条件
+
+    # query = "(company=支付宝（中国）网络技术有限公司||group=支付宝（中国）网络技术有限公司)&&(country=中国)||(title==支付宝)||(url=$alipay.com)"
     query_type = "site"  # 信息系统
-    page = 1    # 从第1页开始提取结果，理论上每日最多查询250次，即250页（如果查询结果有）
+    page = 1    # 第几页结果，理论上每日最多查询250次，即250页（如果查询结果有）
     pagesize = 40   # 每页条数，最大40
-    zone_key_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxx"    # 查询api_key
+    zone_key_id = "168a16034fe673d61d6d2a32b9187d44"    # 查询api_key
     data = query_data(query, query_type, page, pagesize, zone_key_id)
     process_data(data)
 
