@@ -84,13 +84,12 @@ def process_data(data):
 
 
 def main():
-    query = "(company=平安国际融资租赁有限公司)||(title==平安国际融资租赁有限公司)||(banner==平安国际融资租赁有限公司)||(html_banner==平安国际融资租赁有限公司)||(component==平安国际融资租赁有限公司)||(ssl_info.detail==平安国际融资租赁有限公司)"  # 查询条件
+    query = "(company=xxx有限公司)||(title==xxx有限公司)||(banner==xxx有限公司)||(html_banner==xxx有限公司)||(component==xxx有限公司)||(ssl_info.detail==xxx有限公司)"  # 查询条件
 
-    # query = "(company=支付宝（中国）网络技术有限公司||group=支付宝（中国）网络技术有限公司)&&(country=中国)||(title==支付宝)||(url=$alipay.com)"
     query_type = "site"  # 信息系统
     page = 1    # 第几页结果，理论上每日最多查询250次，即250页（如果查询结果有）
     pagesize = 40   # 每页条数，最大40
-    zone_key_id = "168a16034fe673d61d6d2a32b9187d44"    # 查询api_key
+    zone_key_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"    # 查询api_key
     data = query_data(query, query_type, page, pagesize, zone_key_id)
     process_data(data)
 
