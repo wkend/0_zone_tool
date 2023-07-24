@@ -2,7 +2,7 @@
 零零信安api信息系统查询脚本
 
 # 用法
-1.替换代码中的zone_key_id和查询条件
+1.替换代码中的`zone_key_id`和`query`
 ```
 # api_key
 zone_key_id = "xxxxxxxxxxxxxxxxxx"
