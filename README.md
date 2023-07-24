@@ -4,7 +4,6 @@
 # 用法
 1.替换代码中的`zone_key_id`和`query`
 ```
-# api_key
 zone_key_id = "xxxxxxxxxxxxxxxxxx"
 query = "(company=xxx有限公司)||(title==xxx有限公司)||(banner==xxx有限公司)||(ssl_info.detail=xxx有限公司)"
 ```
