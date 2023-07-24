@@ -6,6 +6,7 @@
 ```
 # api_key
 zone_key_id = "xxxxxxxxxxxxxxxxxx"
+query = "(company=xxx有限公司)||(title==xxx有限公司)||(banner==xxx有限公司)||(ssl_info.detail=xxx有限公司)"
 ```
 ![image](https://github.com/wkend/0_zone_tool/assets/37563697/0ebdb9b2-6bea-4e33-974a-fafa3a546ecb)
 
