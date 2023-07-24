@@ -11,6 +11,7 @@ import json
 import pandas as pd
 import time
 from termcolor import colored
+import random
 
 
 def query_data(query, query_type, page, pagesize, zone_key_id):
@@ -21,6 +22,7 @@ def query_data(query, query_type, page, pagesize, zone_key_id):
 
     data_list = []
     flag = True
+    result_total = 0
     while flag:
         payload = {
             "query": query,
@@ -63,12 +65,13 @@ def query_data(query, query_type, page, pagesize, zone_key_id):
                         'app_name': result.setdefault('app_name'),  # 应用名称
                     })
                 page += 1
+            result_total = result_json['total']
         else:
-            print(colored("[+] Error: 查询出错，错误信息为:",
-                  result_json['message'], 'red'))
+            print(
+                colored("[+] Error: {}".format(result_json['message'].strip()), 'red'))
             flag = False
-        time.sleep(3)
-    print(colored('[+] 共查询到{}条数据！'.format(result_json['total']), 'green'))
+        time.sleep(random.randrange(1, 5, 1))
+    print(colored('[+] 共查询到{}条数据！'.format(result_total), 'green'))
     return data_list
 
 
@@ -84,14 +87,15 @@ def process_data(data):
 
 
 def main():
-    query = "(company=xxx有限公司)||(title==xxx有限公司)||(banner==xxx有限公司)||(html_banner==xxx有限公司)||(component==xxx有限公司)||(ssl_info.detail==xxx有限公司)"  # 查询条件
-
+    query = "(company=xxx网络技术有限公司||group=xxx有限公司)&&(country=中国)||(title==xxx)||(url=$xxx.com)"
     query_type = "site"  # 信息系统
     page = 1    # 第几页结果，理论上每日最多查询250次，即250页（如果查询结果有）
     pagesize = 40   # 每页条数，最大40
-    zone_key_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"    # 查询api_key
+    zone_key_id = "xxxxxxxxxxxxxxxxxxxxxxx"    # 查询api_key
     data = query_data(query, query_type, page, pagesize, zone_key_id)
-    process_data(data)
+    # print(data)
+    if len(data):
+        process_data(data)
 
 
 if __name__ == "__main__":
