@@ -33,4 +33,5 @@ python3 0_zone.py
 
 超过单日查询限制时：
 
-<img width="794" alt="Snipaste_2023-07-24_19-45-24" src="https://github.com/wkend/0_zone_tool/assets/37563697/d8fe2fb2-d67e-4356-826a-3a09d83b8240">
+![image](https://github.com/wkend/0_zone_tool/assets/37563697/cf6d0637-a228-4755-b9f4-936c32018b73)
+
