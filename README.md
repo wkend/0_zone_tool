@@ -7,12 +7,7 @@
 # api_key
 zone_key_id = "xxxxxxxxxxxxxxxxxx"
 ```
-
-## 参考语法
-```
-# 查询条件
-query = "(company=xxx有限公司)||(title==xxx有限公司)||(banner==xxx有限公司)||(ssl_info.detail=xxx有限公司)"
-```
+![image](https://github.com/wkend/0_zone_tool/assets/37563697/0ebdb9b2-6bea-4e33-974a-fafa3a546ecb)
 
 2.运行脚本即可，结果保存到excle文件中
 ```
@@ -24,8 +19,13 @@ python3 0_zone.py
 [+] 共查询到91条数据！
 [+] 查询结果已经保存到results_20233215655.xlsx
 ```
-
 ![image](https://user-images.githubusercontent.com/37563697/222225610-07bf4cb3-9227-4ad4-b55a-6dbe56a33771.png)
+
+## 参考语法
+```
+# 查询条件
+query = "(company=xxx有限公司)||(title==xxx有限公司)||(banner==xxx有限公司)||(ssl_info.detail=xxx有限公司)"
+```
 
 # 说明
 
