@@ -85,10 +85,8 @@ def query_data(query, query_type, page, pagesize, zone_key_id):
 def process_data(data):
     df = pd.DataFrame(data)
     t = time.localtime()
-    Timestamp = '{year}{mon}{day}{hour}{min}{sec}'.format(year=t.tm_year,
-                                                          mon=t.tm_mon, day=t.tm_mday, hour=t.tm_hour, min=t.tm_min, sec=t.tm_sec)
-    df.to_excel('results_{}.xlsx'.format(
-        Timestamp), index=False)
+    Timestamp = '{year}{mon}{day}{hour}{min}{sec}'.format(year=t.tm_year, mon=t.tm_mon, day=t.tm_mday, hour=t.tm_hour, min=t.tm_min, sec=t.tm_sec)
+    df.to_excel('results_{}.xlsx'.format(Timestamp), index=False)
     print(colored(
         "[+] 查询结果已经保存到results_{}.xlsx".format(Timestamp), 'green'))
 
