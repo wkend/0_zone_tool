@@ -23,6 +23,8 @@ def query_data(query, query_type, page, pagesize, zone_key_id):
     data_list = []
     flag = True
     result_total = 0
+    api_flag = False
+    count = 0
     while flag:
         payload = {
             "query": query,
@@ -38,8 +40,11 @@ def query_data(query, query_type, page, pagesize, zone_key_id):
             flag = False
         result_json = response.json()
         if result_json['code'] == 0:
+            if not api_flag:
+                print(colored('[-] 接口请求正常，，，', 'green'))
+                api_flag = True
             result_list = json.loads(response.text)['data']
-            if result_json['pagesize'] == 0:
+            if not len(result_json['data']):
                 print(colored('[+] 第{}页无数据，查询结束!'.format(page), 'blue'))
                 flag = False
             else:
@@ -64,14 +69,16 @@ def query_data(query, query_type, page, pagesize, zone_key_id):
                         'extra_info': result.setdefault('extra_info'),  # 设备分类
                         'app_name': result.setdefault('app_name'),  # 应用名称
                     })
+                    count += 1
                 page += 1
-            result_total = result_json['total']
         else:
             print(
                 colored("[+] Error: {}".format(result_json['message'].strip()), 'red'))
             flag = False
+            print(colored('[+] 共查询到{}条数据！'.format(count), 'green'))
+            return data_list
         time.sleep(random.randrange(1, 5, 1))
-    print(colored('[+] 共查询到{}条数据！'.format(result_total), 'green'))
+    print(colored('[+] 共查询到{}条数据！'.format(count), 'green'))
     return data_list
 
 
@@ -87,13 +94,12 @@ def process_data(data):
 
 
 def main():
-    query = "(company=xxx网络技术有限公司||group=xxx有限公司)&&(country=中国)||(title==xxx)||(url=$xxx.com)"
+    query = "(country=中国)&&(company=xxx有限公司)&&(status_code=200)"
+    zone_key_id = "xxxxxxxxxxxxxxxxxxxxxxx"    # 查询api_key
     query_type = "site"  # 信息系统
     page = 1    # 第几页结果，理论上每日最多查询250次，即250页（如果查询结果有）
     pagesize = 40   # 每页条数，最大40
-    zone_key_id = "xxxxxxxxxxxxxxxxxxxxxxx"    # 查询api_key
     data = query_data(query, query_type, page, pagesize, zone_key_id)
-    # print(data)
     if len(data):
         process_data(data)
 
