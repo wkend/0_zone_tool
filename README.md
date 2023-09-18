@@ -5,14 +5,18 @@
 
 
 # 用法
-1.替换代码中的`zone_key_id`和`query`
+安装所需依赖
+```
+python3 -m pip install -r requirements.txt
+```
+替换代码中的`zone_key_id`和`query`
 ```
 zone_key_id = "xxxxxxxxxxxxxxxxxx"
 query = "(company=xxx有限公司)||(title==xxx有限公司)||(banner==xxx有限公司)||(ssl_info.detail=xxx有限公司)"
 ```
 ![image](https://github.com/wkend/0_zone_tool/assets/37563697/0ebdb9b2-6bea-4e33-974a-fafa3a546ecb)
 
-2.运行脚本即可，结果保存到excle文件中
+运行脚本即可，结果保存到excle文件中
 ```
 python3 0_zone.py
 [-] 正在提取第1页数据，，，
