@@ -40,7 +40,7 @@ query = "(company=xxx有限公司)||(title==xxx有限公司)||(banner==xxx有限
 
 超过单日查询限制时：
 
-![image](https://github.com/wkend/0_zone_tool/assets/37563697/cf6d0637-a228-4755-b9f4-936c32018b73)
+![image](https://github.com/wkend/0_zone_tool/assets/37563697/cf159163-4e7b-4d29-afb3-42def5745eba)
 
 
 已查询到的数据会保存：
