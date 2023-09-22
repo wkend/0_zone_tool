@@ -38,12 +38,8 @@ query = "(company=xxx有限公司)||(title==xxx有限公司)||(banner==xxx有限
 
 > 默认从第一页开始提取数据，每页条数最大为40，单个查询条件最多可获取10000条，单日累计查询次数上限为250次，请求速率<=2次/秒。
 
-超过单日查询限制时：
+超过单日查询限制时，已查询到的数据会保存：
 
 ![image](https://github.com/wkend/0_zone_tool/assets/37563697/cf159163-4e7b-4d29-afb3-42def5745eba)
-
-
-已查询到的数据会保存：
-![image](https://github.com/wkend/0_zone_tool/assets/37563697/fabe3009-7ae7-4504-ad0a-efacc25f958b)
 
 
